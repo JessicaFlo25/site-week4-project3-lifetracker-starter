@@ -1,5 +1,5 @@
 const {UnauthorizedError, BadRequestError} = require("../utils/errors")
-// const db = require('../db')
+const db = require("../db")
 
 class User{
     static async login(credentials){
