@@ -1,3 +1,76 @@
 .Navbar {
-  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  background-color:#191919;
+  padding:60px;
+  color:white;
+}
+.listedthings{
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:white;
+  text-decoration: none;
+  list-style-type: none;
+  gap: 50px;
+}
+
+.listedthings li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float: right;
+
+}
+
+.Navbar li a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color:#FDF5A6;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+}
+a:active{
+  background-color: rgb(126, 95, 95);
+}
+
+.logo{
+  height:100px;
+  width: auto;
+  border-color:white;
+  border-radius: 10px;
+  float: right;
+  border: 5px solid #FDF5A6;
+  margin-left: 300px;
+  margin-right: 200px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  gap:50px;
+}
+
+.Loginbttn{
+  border-radius: 30px;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  background-color: white;
+  padding:15px;
+}
+.Registerbttn{
+  border-radius: 30px;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  padding: 15px;
 }

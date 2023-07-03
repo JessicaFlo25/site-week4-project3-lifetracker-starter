@@ -120,7 +120,7 @@ Update the `App` component to manage authentication state:
 - [X] Build the **`Navbar`** component to:
   - [X] Render JSX that is wrapped by a `nav` element with the class name of `navbar`
   - [ X] Render the app's logo as an element with the class name of `logo`.
-    - [X] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
+    - [] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
     - [ ] Inside that `Link` component should be the application's logo (text or image).
   - [ ] Render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route.
 
