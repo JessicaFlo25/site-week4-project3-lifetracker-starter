@@ -5,5 +5,7 @@ DROP DATABASE lifetracker;
 CREATE DATABASE lifetracker;
 \connect lifetracker;
 
+
+
 \i lifetracker-schema.sql
 

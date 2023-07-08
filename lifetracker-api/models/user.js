@@ -48,7 +48,7 @@ class User{
     
         })
 
-        if(credentials.email.indexOf("@") <= 0){
+        if (credentials.email.indexOf("@") <= 0){
             throw new BadRequestError("Invalid email.")
         }
 
@@ -58,7 +58,7 @@ class User{
         if(existingUser){
             throw new BadRequestError(`Duplicate email: ${credentials.email}`)
         }
-         const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
+        const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
 
         const lowercasedEmail = credentials.email.toLowerCase()
 
@@ -75,6 +75,7 @@ class User{
         `, [credentials.username, hashedPassword, credentials.first_name, credentials.last_name, lowercasedEmail])
 
         const user = result.rows[0]
+        console.log("user:", user); 
         return User.makePublicUser(user)
 
     }

@@ -24,13 +24,13 @@ By the end of this project you will be able to...
 ### Core Features
 
 - [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
-- [ ] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
-- [ ] **Login Page:** A form that allows users to login with email and password.
+- [X] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [X] **Login Page:** A form that allows users to login with email and password.
 - [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e., the detailed activity page). When they sign out, all frontend data should be reset.
 - [ ] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
   - [ ] If the user is logged in, it should display a **Sign Out** button.
   - [ ] If no user is logged in, it should display **Login** and **Register** buttons.
-  - [ ] Display a logo on the far left side, and contain links to the individual detailed activity pages.
+  - [X] Display a logo on the far left side, and contain links to the individual detailed activity pages.
 - [ ] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] **Detailed Activity Page:** Display and enter activities.
   - [ ] Display a feed of all previously tracked activities.
@@ -575,11 +575,11 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Next, implement the functionality to allow users to save instances of things they've drank/eaten, so that they can track their own nutrition data! Also make sure users can only access the data that they themselves have created. No other user should be able to see any data owned by another user!
   - [ ] The **Nutrition** model
     - [ ] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
-      - [ ] The `Nutrition` model should have **at least** the following static methods:
-        - [ ] `createNutrition`
-          - [ ] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
-          - [ ] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
-          - [ ] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
+      - [X ] The `Nutrition` model should have **at least** the following static methods:
+        - [X] `createNutrition`
+          - [X] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
+          - [X] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
+          - [X] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
         - [ ] `fetchNutritionById`
           - [ ] When supplied with a valid `id`, fetches the a nutrition instance from the database that matches that `id`.
           - [ ] If no nutrition instance matches that `id`, throws a `NotFoundError` (`404` status code)

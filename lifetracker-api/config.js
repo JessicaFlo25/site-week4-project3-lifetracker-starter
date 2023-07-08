@@ -16,7 +16,7 @@ function getDatabaseUri() {
 }
 
 const BCRYPT_WORK_FACTOR = 13
-
+const SECRET_KEY = process.env.SECRET_KEY
 
 console.log("App Config")
 console.log("PORT:", PORT)
@@ -27,4 +27,5 @@ module.exports = {
     PORT,
     BCRYPT_WORK_FACTOR,
     getDatabaseUri,
+    SECRET_KEY
 }

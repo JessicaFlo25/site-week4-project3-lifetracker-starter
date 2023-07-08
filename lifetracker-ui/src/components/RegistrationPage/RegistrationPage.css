@@ -1,0 +1,75 @@
+.registration-form-container{
+    text-align: center;
+}
+
+.CreateAccount{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    color: #191919;
+}
+
+.regInputs{
+    border-style: ridge;
+    padding: 30px;
+    border-color: #191919;
+    display: flex;
+    flex-direction: column;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding-bottom:90px;
+}
+
+.email-input{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    border-radius: 10px;
+}
+.username-input{
+    font-size: 20px;
+    margin-top: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.fname-input{
+    margin-top: 30px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.lname-input{
+    color: #191919;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.password-input{
+    color: #191919;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.register-button{
+    background-color: #191919;
+    color: #fdf5a6;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
