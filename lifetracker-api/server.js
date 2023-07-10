@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const {BadRequestError, NotFoundError} = require('./utils/errors')
 const authRoutes = require("./routes/auth")
 const {PORT} = require("./config")
-const nutritionRoutes = require("./routes/nutritionroutes")
+const nutritionroutes = require("./routes/nutritionroutes")
 const app = express()
 app.use(cors());
 app.use(morgan("tiny"));
@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use("/auth", authRoutes)
 
-app.use("/nutrition", nutritionRoutes)
+app.use("/nutrition", nutritionroutes)
 
 
 app.use("/", (req, res, next) => {

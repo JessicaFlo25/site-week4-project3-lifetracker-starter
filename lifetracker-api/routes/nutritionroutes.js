@@ -5,9 +5,7 @@ const Nutrition = require("../models/Nutrition")
 router.get("/:userID", async (req,res, next) => {
     try{
         const nutrition = await Nutrition.getAllNutritionDataByID(req.params.userID)
-
         res.status(200).json({nutrition})
-
     } catch(err) {
         next(err)
     }

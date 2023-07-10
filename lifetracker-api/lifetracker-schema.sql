@@ -17,5 +17,5 @@ CREATE TABLE nutrition (
     calories    INTEGER NOT NULL,
     image_url   TEXT NOT NULL,
     user_id     TEXT NOT NULL,
-    created_at  TIMESTAMP NOT NULL
+    created_at  TIMESTAMP NOT NULL DEFAULT NOW()
 );

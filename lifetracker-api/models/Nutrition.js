@@ -34,9 +34,10 @@ class Nutrition {
             throw new BadRequestError("No Id provided")
         }
 
-        const query = db.query(`SELECT * FROM nutrition WHERE user_id = $1`, [id])
+        const query = await db.query(`SELECT * FROM nutrition WHERE user_id = $1`, [id])
 
-        const result = query.rows[0]
+        const result = query.rows
+        
         return result
     }
 }

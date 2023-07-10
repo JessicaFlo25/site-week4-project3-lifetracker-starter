@@ -71,6 +71,7 @@ const App = () => {
         console.log(data.user.username)
 
         const decodedToken = jwtDecode(token)
+        setUserID(decodedToken.userId)
         setUserName(decodedToken.Username)//fetching the username from the token
         return true
   
@@ -108,6 +109,7 @@ const App = () => {
         localStorage.setItem("token",token)
         
         const decodedToken = jwtDecode(token)
+        setUserID(decodedToken.userId)
         setUserName(decodedToken.Username)//fetching the username from the token
 
     
@@ -144,7 +146,7 @@ const App = () => {
           <Route path="/register" element={<RegistrationPage onRegister={handleRegistration}/>} />  
           {/* conditional rendering, need to figure out a conditional using a state and make sure wildcard is last conditional */}
           <Route path="/activity" element={<ActivityPage />}/>
-          <Route path="/nutrition*" element={<NutritionPage loggedIn={loggedIn} userID={userID} />}/>
+          <Route path="/nutrition" element={<NutritionPage loggedIn={loggedIn} userID={userID} />}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       

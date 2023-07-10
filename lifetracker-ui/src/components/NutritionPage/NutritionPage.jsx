@@ -1,73 +1,116 @@
-
 import React from 'react'
-import { useState } from 'react'
-import { BrowserRouter, Routes } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from "axios"
+import NutritionCard from '../NutritionCard/NutritionCard'
 
 const NutritionPage = ({loggedIn, userID}) => {
-//assuming this will also only display if the user is logged in,need to use logged in usestate
-//if they are not display LOG IN TO SEE DATA,else display the form
-//develop form with all inputs,name,calories,image,cat
-//button,with text save,onclick creates new nutrition entry, similar to register
+//object for new item from form, array for already existing data
+const [addedItem, setAddedItem] = useState({})
+const [existingItems, setExistingItems] = useState([])
 
+//navigation tool
 const navigate = useNavigate()
 
-const [nutrition_name,setNutritionName] = useState("")
-const [calories,setCalories] = useState(1)
-const [imageURL,setImageUrl] = useState("")
-const [category,setCategory] = useState("") //category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. 
+//just fetches all entries from that specific user
+const getExistingItems = async () => {
+  try {
+  const response = await axios.get(`http://localhost:3001/nutrition/${userID}`)
+  setExistingItems(response.data.nutrition)
 
-const handleAddNutrition = async (name, calories, image_url, category, user_id) => {
-  try{
-    const response = await fetch("http://localhost:3001/nutrition/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({name,category, calories,image_url, user_id })
-
-    });
-  }catch(err){
-    next(err)
+  console.log(existingItems)
+  } catch(err) {
+    console.error("Error: ", err)
   }
 }
+
+useEffect(() => {
+  getExistingItems()
+}, [userID])
+
+//control the addition of each nutrition entry
+//first add info each time while keeping previously added info in the database
+//then we reset our usestate variable so that something new can be added each time
+//it also prevents adding items more than once
+//then we call get existing Items which will hold all previous added entries
+//using the http request get
+const handleAddNutrition = async (e) => {
+  e.preventDefault()
+  try{
+    const response = await axios.post('http://localhost:3001/nutrition/create', {
+      ...addedItem,
+      user_id: userID
+    })
+    setAddedItem({
+      name: "",
+      calories: "",
+      category: "",
+      image_url:""
+    })
+    
+    getExistingItems()
+    }
+  catch(err){
+    next(err)
+  }
+  console.log(addedItem)
+}
+
+//will add to object will keeping previous added information
+const handleInputChange = (e) => {
+  const {name, value } = e.target
+  setAddedItem((prevNutrition) => ({ ...prevNutrition, [name]: value }))
+}
+
+
 
 
   return (
     <div>
       {loggedIn ? (
         <div className='form-container'>
-          <form  onSubmit={() => handleAddNutrition (nutrition_name,calories,imageURL, category, userID)}className='nutrition-form'>
+          <form  onSubmit={handleAddNutrition}className='nutrition-form'>
             <input
               className='nutrition'
+              name = "name"
               type="text"
-              value={nutrition_name}
-              onChange={(e) => setNutritionName(e.target.value)}
+              value={addedItem.name}
+              onChange={handleInputChange}
               required
               placeholder="Nutrition Name"
             />
             <input
             className='calories'
+            name ="calories"
             type="number"
-            value={calories}
-            onChange={(e) => setCalories(e.target.value)} //dropdown
+            value={addedItem.calories}
+            placeholder='Enter number of calories'
+            onChange={handleInputChange} 
             />
             <input
             className='image_url'
+            name='image_url'
             type="text"
-            value={imageURL}
-            onChange={(e) => setImageUrl(e.target.value)}
-            
+            value={addedItem.image_url}
+            placeholder='Desired Image URL'
+            onChange={handleInputChange}
             />
             <input 
             className='category'
+            name="category"
             type="text"
-            value={category}
+            value={addedItem.category}
+            placeholder='Enter category Eg:snack'
+            onChange={handleInputChange}
             />
 
             <button  type="submit" className='submit-bttn'>Save</button>
             
           </form>
+
+          {existingItems.map((data) => (
+            (<NutritionCard data = {data}/>)
+          ))}
           
         </div>
 
