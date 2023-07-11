@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
+import "./NutritionPage.css"
 import NutritionCard from '../NutritionCard/NutritionCard'
 
 const NutritionPage = ({loggedIn, userID}) => {
@@ -49,12 +50,10 @@ const handleAddNutrition = async (e) => {
     })
     
     getExistingItems()
-    }
-  catch(err){
-    next(err)
+    }catch(err){
+      next(err)
   }
-  console.log(addedItem)
-}
+};
 
 //will add to object will keeping previous added information
 const handleInputChange = (e) => {
@@ -79,6 +78,15 @@ const handleInputChange = (e) => {
               required
               placeholder="Nutrition Name"
             />
+            <input 
+            className='category'
+            name="category"
+            type="text"
+            value={addedItem.category}
+            placeholder='Enter category Eg:snack'
+            onChange={handleInputChange}
+            />
+
             <input
             className='calories'
             name ="calories"
@@ -95,16 +103,8 @@ const handleInputChange = (e) => {
             placeholder='Desired Image URL'
             onChange={handleInputChange}
             />
-            <input 
-            className='category'
-            name="category"
-            type="text"
-            value={addedItem.category}
-            placeholder='Enter category Eg:snack'
-            onChange={handleInputChange}
-            />
 
-            <button  type="submit" className='submit-bttn'>Save</button>
+            <button  type="submit" className='save-bttn'>Save</button>
             
           </form>
 
@@ -114,7 +114,7 @@ const handleInputChange = (e) => {
           
         </div>
 
-      ) : (<h1 className='Log-in'>Log in to see your data</h1>)}
+      ) : (<div className='log-container'><p className='Log-in'>Log in to see your data</p></div>)}
 
 
 

@@ -4,3 +4,23 @@
 .SleepPage .button button {
   flex: 1;
 }
+
+.nothing-container{
+  text-align: center;
+  padding-top: 30px;
+}
+
+
+.nothing-here{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  font-weight: 900;
+  justify-content: center;
+
+} 
+
+.sleep-login{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  font-weight: 900;
+}

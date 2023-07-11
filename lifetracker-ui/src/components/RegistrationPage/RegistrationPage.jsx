@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import "./RegistrationPage.css"
+import { useNavigate } from "react-router-dom";
 
 
 const RegistrationPage = ({onRegister}) => {
@@ -10,13 +11,16 @@ const RegistrationPage = ({onRegister}) => {
   const [Lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
-
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister(username, password, Firstname, Lastname, email);
+    const registeredBoolean = onRegister(username, password, Firstname, Lastname, email);
+    if(registeredBoolean){
+      navigate("/activity")
+    }
   };
-
+//why do i get an error when i want to use await above, without it, the page takes a bit to load
 
   return (
     <div className='registration-form-container'>

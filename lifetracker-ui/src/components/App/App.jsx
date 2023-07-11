@@ -9,7 +9,9 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import NotFound from '../NotFound/NotFound'
+import  SleepPage from '../SleepPage/SleepPage'
 import "./App.css"
+import { ExercisePage } from '../ExercisePage/ExercisePage'
 
 
 
@@ -71,6 +73,7 @@ const App = () => {
         console.log(data.user.username)
 
         const decodedToken = jwtDecode(token)
+        console.log(decodedToken)
         setUserID(decodedToken.userId)
         setUserName(decodedToken.Username)//fetching the username from the token
         return true
@@ -97,31 +100,45 @@ const App = () => {
         },
         body: JSON.stringify({username, password, first_name, last_name, email })
       });
+      console.log(response)
       //name, email, password
 
       //wait for the response
       const data = await response.json();
 
+      console.log(data)
+
       if (response.status == 201) {
         //got the token information and storing it in localStorage
+        console.log("we get here")
         const {token} = data
+        console.log("we don't get here")
         console.log("TOKEN IS ", token)
         localStorage.setItem("token",token)
+
         
-        const decodedToken = jwtDecode(token)
-        setUserID(decodedToken.userId)
-        setUserName(decodedToken.Username)//fetching the username from the token
+        
+       
 
     
         //Registration successful
         setLoggedIn(true);
         console.log(data.message); //optional - display a success message
+        console.log(data.user.username)
+        console.log(jwtDecode(token))
+        const decodedToken = jwtDecode(token)
+        console.log(decodedToken)
+        setUserID(decodedToken.UserID)
+        setUserName(decodedToken.Username) //optional - display a success message
+        //returning because will facilitate usage of navigate
+        return true
       } else {
         //Registration failed
         console.log(data.message); //optional - display error meesage
+        return false
       }
     } catch (error) {
-      console.error("Error: ", error);
+      console.log(error)
     }
   };
 
@@ -144,9 +161,10 @@ const App = () => {
           <Route path="/" element={<Landing/>}/> 
           <Route path="/login" element={<LoginPage onLogin={handleLogin} loginError={loginError} loggedIn = {loggedIn} />}/>
           <Route path="/register" element={<RegistrationPage onRegister={handleRegistration}/>} />  
-          {/* conditional rendering, need to figure out a conditional using a state and make sure wildcard is last conditional */}
-          <Route path="/activity" element={<ActivityPage />}/>
+          <Route path="/activity" element={<ActivityPage loggedIn={loggedIn} />}/>
+          <Route path="/exercise" element={<ExercisePage loggedIn={loggedIn}/>}/>
           <Route path="/nutrition" element={<NutritionPage loggedIn={loggedIn} userID={userID} />}/>
+          <Route path="/sleep" element={<SleepPage loggedIn={loggedIn} />}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       

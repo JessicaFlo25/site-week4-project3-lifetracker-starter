@@ -1,0 +1,23 @@
+.activity{
+text-align: center;
+}
+
+.activity-txt{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    padding-top: 30px;
+    font-weight: 900;
+}
+
+.bar-graph{
+    height:300px;
+    width: auto;
+}
+
+.activity-login{
+    text-align: center;
+    padding-top: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 900;
+}

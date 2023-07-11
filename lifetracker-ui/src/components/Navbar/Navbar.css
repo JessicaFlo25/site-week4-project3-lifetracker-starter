@@ -76,3 +76,11 @@ a:active{
   padding: 15px;
   border-color:#FDF5A6;
 }
+
+.SignOutBttn{
+  border-radius: 30px;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  padding: 15px;
+  border-color:#FDF5A6;
+}

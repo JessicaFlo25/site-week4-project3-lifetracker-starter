@@ -1,6 +1,34 @@
-.ExercisePage .button {
+/* .ExercisePage .button {
   display: flex;
 }
 .ExercisePage .button button {
   flex: 1;
+} */
+
+
+.exercise-page{
+  text-align: center;
+  padding-top: 30px;
+}
+
+.exercise-text{
+  font-size: 25px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+}
+
+
+
+.exercise-img{
+  height: 300px;
+  width: auto;
+
+}
+
+.exercise-login{
+  text-align: center;
+  padding-top: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  font-weight: 900;
 }

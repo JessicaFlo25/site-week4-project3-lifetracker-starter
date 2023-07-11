@@ -17,3 +17,65 @@
 .NutritionPage .button button {
   flex: 1;
 }
+
+.log-container{
+  /* text-align: center; */
+  text-align: center;
+  padding-top: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.form-container{
+  text-align: center;
+  padding-top: 30px;
+}
+
+.nutrition-form{
+  padding: 30px;
+  border-color: #191919;
+  display: flex;
+  flex-direction: column;
+  margin-left: 500px;
+  margin-right: 500px;
+  padding-bottom:90px;
+  gap: 10px;
+}
+
+.nutrition{
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.calories{
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.image_url{
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.category{
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 8px;
+  border-radius: 10px;
+}
+.save-bttn{
+  background-color: #191919;
+  color: #fdf5a6;
+  padding: 8px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
