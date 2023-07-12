@@ -22,7 +22,6 @@
   "engines": {
     "node": ">=18.16.0"
   },
-  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }

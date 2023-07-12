@@ -8,7 +8,6 @@ CREATE TABLE users(
     created_at      TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );
---need DOES NOT EXISTS, also want to change password and username to VARCHAR
 
 CREATE TABLE nutrition (
     id          SERIAL PRIMARY KEY,

@@ -16,7 +16,7 @@ function getDatabaseUri() {
 }
 
 const BCRYPT_WORK_FACTOR = 13
-const SECRET_KEY = process.env.SECRET_KEY
+const SECRET_KEY = process.env.SECRET_KEY || "This_is_a_string"
 
 console.log("App Config")
 console.log("PORT:", PORT)

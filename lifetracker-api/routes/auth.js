@@ -10,7 +10,7 @@ router.post("/login", async function (req,res,next){
     try {
         const user = await User.login(req.body)
         const token = jwt.sign(
-            { userId: user.id, userName: user.username },//is this the actual name or username?
+            { userId: user.id, userName: user.username },
             SECRET_KEY,
             {
               expiresIn: "1h",
@@ -23,7 +23,7 @@ router.post("/login", async function (req,res,next){
             user: {
               id: user.id,
               name: user.username, //follows structure of schema
-              email: user.email,}})//user holds the 
+              email: user.email,}})
     }catch (err){
         next(err)
     }
@@ -37,7 +37,7 @@ router.post("/register", async function (req,res,next) {
         const token = jwt.sign({UserID:user.id , Username:user.username},//
             SECRET_KEY,{
                 expiresIn:"1h",
-            })//have to place in .env file
+            })
 
         console.log("IM HERE", token); 
         console.log("user", user);
@@ -55,6 +55,3 @@ router.post("/register", async function (req,res,next) {
 })
 module.exports = router
 
-////im not getting the correct status codes why???
-//how can i create the other tables????
-///the .test files.....
