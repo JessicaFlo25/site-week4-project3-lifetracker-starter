@@ -16,7 +16,7 @@ const navigate = useNavigate()
 //just fetches all entries from that specific user
 const getExistingItems = async () => {
   try {
-  const response = await axios.get(`http://localhost:3001/nutrition/${userID}`)
+  const response = await axios.get(`https://lifetracker-jessica.onrender.com/nutrition/${userID}`)
   setExistingItems(response.data.nutrition)
 
   console.log(existingItems)
@@ -38,7 +38,7 @@ useEffect(() => {
 const handleAddNutrition = async (e) => {
   e.preventDefault()
   try{
-    const response = await axios.post('http://localhost:3001/nutrition/create', {
+    const response = await axios.post('https://lifetracker-jessica.onrender.com/nutrition/create', {
       ...addedItem,
       user_id: userID
     })

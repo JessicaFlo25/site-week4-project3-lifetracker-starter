@@ -43,7 +43,7 @@ const App = () => {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await fetch("http://localhost:3001/auth/login", {
+      const response = await fetch("https://lifetracker-jessica.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +93,7 @@ const App = () => {
   //Registration function to handle registration
   const handleRegistration = async (username, password, first_name, last_name, email) => {
     try {
-      const response = await fetch("http://localhost:3001/auth/register", {
+      const response = await fetch("https://lifetracker-jessica.onrender.com/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
